@@ -53,6 +53,7 @@ class DepremRSS {
         // Activation and deactivation hooks
         register_activation_hook(__FILE__, array($this, 'activate'));
         register_deactivation_hook(__FILE__, array($this, 'deactivate'));
+        register_uninstall_hook(__FILE__, array('DepremRSS', 'uninstall'));
         
         // Admin hooks
         add_action('admin_menu', array($this, 'add_admin_menu'));
@@ -92,6 +93,17 @@ class DepremRSS {
      * Plugin deactivation
      */
     public function deactivate() {
+        // Clean up transients
+        delete_transient('depremrss_feed_data');
+    }
+    
+    /**
+     * Plugin uninstall
+     */
+    public static function uninstall() {
+        // Remove options
+        delete_option('depremrss_settings');
+        
         // Clean up transients
         delete_transient('depremrss_feed_data');
     }
@@ -373,12 +385,12 @@ class DepremRSS {
         );
         
         // Try to extract magnitude (e.g., "M 4.5" or "ML 3.2")
-        if (preg_match('/M[LW]?\s*(\d+\.?\d*)/', $title . ' ' . $description, $matches)) {
+        if (preg_match('/M[LW]?\s*(\d+(?:\.\d+)?)/', $title . ' ' . $description, $matches)) {
             $data['magnitude'] = floatval($matches[1]);
         }
         
         // Try to extract depth (e.g., "10 km" or "15km")
-        if (preg_match('/(\d+\.?\d*)\s*km/i', $title . ' ' . $description, $matches)) {
+        if (preg_match('/(\d+(?:\.\d+)?)\s*km/i', $title . ' ' . $description, $matches)) {
             $data['depth'] = floatval($matches[1]);
         }
         

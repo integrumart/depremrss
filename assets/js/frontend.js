@@ -46,12 +46,11 @@
                     }
                 },
                 error: function() {
-                    DepremRSSFrontend.showNotification('Güncelleme sırasında bir hata oluştu.', 'error');
-                },
-                complete: function() {
-                    // Remove loading state
+                    // Remove loading state on error
                     $container.removeClass('depremrss-loading');
                     $btn.removeClass('loading').prop('disabled', false);
+                    
+                    DepremRSSFrontend.showNotification('Güncelleme sırasında bir hata oluştu.', 'error');
                 }
             });
         },
