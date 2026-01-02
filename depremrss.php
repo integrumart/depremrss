@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Deprem RSS
  * Plugin URI: https://github.com/integrumart/depremrss
- * Description: WordPress için deprem verilerini RSS olarak sunan eklenti. Türkiye'deki depremleri takip edin ve sitenizde gösterin.
+ * Description: WordPress için deprem verilerini RSS olarak sunan eklenti. Türkiye'deki depremleri takip edin ve sitenizde gösterin. Not: v1.0.0 demo veri kullanır, gerçek API v1.1.0'da eklenecektir.
  * Version: 1.0.0
  * Author: IntegrumArt
  * Author URI: https://github.com/integrumart
@@ -61,6 +61,9 @@ class DepremRSS {
         
         // Admin menu
         add_action('admin_menu', array($this, 'add_admin_menu'));
+        
+        // Admin notice for demo data
+        add_action('admin_notices', array($this, 'admin_notice_demo_data'));
         
         // Custom RSS feed
         add_action('init', array($this, 'add_custom_feed'));
@@ -128,6 +131,19 @@ class DepremRSS {
             'dashicons-warning',
             30
         );
+    }
+    
+    /**
+     * Admin notice for demo data
+     */
+    public function admin_notice_demo_data() {
+        $screen = get_current_screen();
+        if ($screen && $screen->id === 'toplevel_page_depremrss') {
+            echo '<div class="notice notice-info">';
+            echo '<p><strong>' . __('Bilgilendirme:', 'depremrss') . '</strong> ';
+            echo __('Bu sürüm (1.0.0) demo veri kullanmaktadır. Gerçek KOERI API entegrasyonu v1.1.0\'da eklenecektir.', 'depremrss');
+            echo '</p></div>';
+        }
     }
     
     /**
@@ -315,6 +331,14 @@ class DepremRSS {
         }
         
         wp_enqueue_style('depremrss-admin', DEPREMRSS_PLUGIN_URL . 'assets/css/admin.css', array(), DEPREMRSS_VERSION);
+        wp_enqueue_script('depremrss-admin', DEPREMRSS_PLUGIN_URL . 'assets/js/admin.js', array(), DEPREMRSS_VERSION, true);
+        
+        // Localize script with data from PHP
+        wp_localize_script('depremrss-admin', 'depremrssAdmin', array(
+            'feedUrl' => home_url('/feed/deprem'),
+            'copySuccess' => __('URL kopyalandı!', 'depremrss'),
+            'copyPrompt' => __('URL\'yi kopyalamak için Ctrl+C / Cmd+C tuşlarına basın:', 'depremrss')
+        ));
     }
     
     /**

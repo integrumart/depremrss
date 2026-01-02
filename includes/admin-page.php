@@ -71,17 +71,7 @@ if (!defined('ABSPATH')) {
             <h3><?php _e('RSS Feed URL', 'depremrss'); ?></h3>
             <p>
                 <code id="depremrss-feed-url"><?php echo esc_url(home_url('/feed/deprem')); ?></code>
-                <button type="button" class="button" onclick="
-                    if (navigator.clipboard && navigator.clipboard.writeText) {
-                        navigator.clipboard.writeText('<?php echo esc_js(home_url('/feed/deprem')); ?>').then(function() {
-                            alert('<?php echo esc_js(__('URL kopyalandı!', 'depremrss')); ?>');
-                        }).catch(function() {
-                            prompt('<?php echo esc_js(__('URL\'yi kopyalamak için Ctrl+C / Cmd+C tuşlarına basın:', 'depremrss')); ?>', '<?php echo esc_js(home_url('/feed/deprem')); ?>');
-                        });
-                    } else {
-                        prompt('<?php echo esc_js(__('URL\'yi kopyalamak için Ctrl+C / Cmd+C tuşlarına basın:', 'depremrss')); ?>', '<?php echo esc_js(home_url('/feed/deprem')); ?>');
-                    }
-                ">
+                <button type="button" class="button" id="depremrss-copy-feed-url">
                     <?php _e('Kopyala', 'depremrss'); ?>
                 </button>
             </p>
