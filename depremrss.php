@@ -122,7 +122,8 @@ class DepremRSS {
                     url: ajaxurl,
                     type: 'POST',
                     data: {
-                        action: 'depremrss_manual_fetch'
+                        action: 'depremrss_manual_fetch',
+                        nonce: '<?php echo wp_create_nonce('depremrss_fetch'); ?>'
                     },
                     success: function(response) {
                         if (response.success) {
@@ -147,6 +148,9 @@ class DepremRSS {
      * Manuel deprem getirme (AJAX)
      */
     public function manual_fetch_earthquakes() {
+        // Nonce kontrolü
+        check_ajax_referer('depremrss_fetch', 'nonce');
+        
         if (!current_user_can('manage_options')) {
             wp_send_json_error('Yetkiniz yok.');
         }
@@ -315,10 +319,10 @@ class DepremRSS {
         
         // Yazıyı oluştur
         $post_data = array(
-            'post_title'    => $earthquake['title'],
+            'post_title'    => sanitize_text_field($earthquake['title']),
             'post_content'  => $content,
             'post_status'   => 'publish',
-            'post_author'   => 1,
+            'post_author'   => get_current_user_id() ?: 1,
             'post_category' => array(),
             'post_type'     => 'post'
         );
@@ -335,11 +339,11 @@ class DepremRSS {
         $post_id = wp_insert_post($post_data);
         
         if ($post_id && !is_wp_error($post_id)) {
-            // Meta bilgileri ekle
-            update_post_meta($post_id, 'depremrss_magnitude', $earthquake['magnitude']);
-            update_post_meta($post_id, 'depremrss_depth', $earthquake['depth']);
-            update_post_meta($post_id, 'depremrss_latitude', $earthquake['latitude']);
-            update_post_meta($post_id, 'depremrss_longitude', $earthquake['longitude']);
+            // Meta bilgileri ekle (sanitize edilmiş)
+            update_post_meta($post_id, 'depremrss_magnitude', sanitize_text_field($earthquake['magnitude']));
+            update_post_meta($post_id, 'depremrss_depth', sanitize_text_field($earthquake['depth']));
+            update_post_meta($post_id, 'depremrss_latitude', sanitize_text_field($earthquake['latitude']));
+            update_post_meta($post_id, 'depremrss_longitude', sanitize_text_field($earthquake['longitude']));
             update_post_meta($post_id, 'depremrss_source', 'Kandilli Rasathanesi');
             
             // Kategori ekle (Deprem kategorisi yoksa oluştur)
