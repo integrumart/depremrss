@@ -1,0 +1,286 @@
+/* Deprem RSS - Frontend Styles */
+
+.depremrss-container {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.depremrss-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.depremrss-header h3 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.depremrss-refresh-btn {
+    background: #0073aa;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background 0.3s ease;
+}
+
+.depremrss-refresh-btn:hover {
+    background: #005a87;
+}
+
+.depremrss-refresh-btn .dashicons {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+}
+
+.depremrss-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.depremrss-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: #f9f9f9;
+    border-left: 4px solid #ccc;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.depremrss-item:hover {
+    background: #f0f0f0;
+    transform: translateX(5px);
+}
+
+/* Magnitude-based styling */
+.depremrss-item.magnitude-major {
+    border-left-color: #dc3545;
+    background: #fff5f5;
+}
+
+.depremrss-item.magnitude-strong {
+    border-left-color: #ff6b6b;
+    background: #fff8f8;
+}
+
+.depremrss-item.magnitude-moderate {
+    border-left-color: #ffa500;
+    background: #fffaf0;
+}
+
+.depremrss-item.magnitude-light {
+    border-left-color: #ffd700;
+    background: #fffef0;
+}
+
+.depremrss-item.magnitude-minor {
+    border-left-color: #28a745;
+    background: #f8fff8;
+}
+
+.depremrss-magnitude {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 70px;
+    height: 70px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.magnitude-major .depremrss-magnitude {
+    background: #dc3545;
+    color: #fff;
+}
+
+.magnitude-strong .depremrss-magnitude {
+    background: #ff6b6b;
+    color: #fff;
+}
+
+.magnitude-moderate .depremrss-magnitude {
+    background: #ffa500;
+    color: #fff;
+}
+
+.magnitude-light .depremrss-magnitude {
+    background: #ffd700;
+    color: #333;
+}
+
+.magnitude-minor .depremrss-magnitude {
+    background: #28a745;
+    color: #fff;
+}
+
+.magnitude-value {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.magnitude-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+.depremrss-details {
+    flex: 1;
+}
+
+.depremrss-location {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.depremrss-meta {
+    display: flex;
+    gap: 15px;
+    font-size: 13px;
+    color: #666;
+}
+
+.depremrss-meta span {
+    display: inline-flex;
+    align-items: center;
+}
+
+.depremrss-depth::before {
+    content: "⬇";
+    margin-right: 5px;
+}
+
+.depremrss-date::before {
+    content: "🕐";
+    margin-right: 5px;
+}
+
+.depremrss-no-data {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-size: 16px;
+}
+
+/* Widget specific styles */
+.widget .depremrss-container {
+    padding: 15px;
+    margin: 0;
+}
+
+.widget .depremrss-header h3 {
+    font-size: 18px;
+}
+
+.widget .depremrss-item {
+    padding: 10px;
+}
+
+.widget .depremrss-magnitude {
+    min-width: 50px;
+    height: 50px;
+}
+
+.widget .magnitude-value {
+    font-size: 18px;
+}
+
+.widget .depremrss-location {
+    font-size: 14px;
+}
+
+.widget .depremrss-meta {
+    font-size: 11px;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .depremrss-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .depremrss-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .depremrss-magnitude {
+        align-self: flex-start;
+    }
+    
+    .depremrss-meta {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+/* Loading animation */
+.depremrss-loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.depremrss-refresh-btn.loading .dashicons {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Notification styles */
+.depremrss-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 9999;
+    opacity: 0;
+    transform: translateX(400px);
+    transition: all 0.3s ease;
+}
+
+.depremrss-notification.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.depremrss-notification-success {
+    border-left: 4px solid #28a745;
+}
+
+.depremrss-notification-error {
+    border-left: 4px solid #dc3545;
+}
