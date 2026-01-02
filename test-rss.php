@@ -62,7 +62,7 @@
     
     <div class="info">
         <strong>Bu sayfa Deprem RSS eklentisinin çalışmasını test eder.</strong><br>
-        RSS Kaynağı: <a href="http://koeri.boun.edu.tr/rss/" target="_blank">http://koeri.boun.edu.tr/rss/</a>
+        RSS Kaynağı: <a href="http://koeri.boun.edu.tr/rss/" target="_blank" rel="noopener noreferrer">http://koeri.boun.edu.tr/rss/</a>
     </div>
 
     <?php
@@ -166,7 +166,7 @@
             }
             
             if ($link) {
-                echo '<p><a href="' . htmlspecialchars($link) . '" target="_blank">Detaylar</a></p>';
+                echo '<p><a href="' . htmlspecialchars($link) . '" target="_blank" rel="noopener noreferrer">Detaylar</a></p>';
             }
             
             echo '</div>';

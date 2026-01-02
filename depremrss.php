@@ -308,7 +308,8 @@ class DepremRSS {
      */
     private function create_earthquake_post($earthquake) {
         // Aynı başlıkla yazı var mı kontrol et
-        $existing_post = get_page_by_title($earthquake['title'], OBJECT, 'post');
+        $sanitized_title = sanitize_text_field($earthquake['title']);
+        $existing_post = get_page_by_title($sanitized_title, OBJECT, 'post');
         
         if ($existing_post) {
             return false; // Zaten var, ekleme
