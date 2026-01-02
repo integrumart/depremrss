@@ -1,0 +1,55 @@
+/* Deprem RSS - Admin Styles */
+
+.depremrss-admin-header {
+    margin-bottom: 20px;
+}
+
+.depremrss-settings-section {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+}
+
+.depremrss-settings-section h2 {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.form-table th {
+    padding: 20px 10px 20px 0;
+    width: 200px;
+}
+
+.form-table td {
+    padding: 15px 10px;
+}
+
+.form-table input[type="number"],
+.form-table input[type="url"],
+.form-table input[type="text"] {
+    padding: 8px 12px;
+}
+
+.form-table .description {
+    margin-top: 8px;
+    font-style: italic;
+    color: #646970;
+}
+
+.depremrss-usage-examples {
+    background: #f0f0f1;
+    padding: 15px;
+    border-radius: 4px;
+    margin-top: 15px;
+}
+
+.depremrss-usage-examples code {
+    display: block;
+    background: #fff;
+    padding: 10px;
+    margin: 10px 0;
+    border-left: 3px solid #2271b1;
+    font-size: 14px;
+}
