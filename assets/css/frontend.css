@@ -256,3 +256,31 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+/* Notification styles */
+.depremrss-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 9999;
+    opacity: 0;
+    transform: translateX(400px);
+    transition: all 0.3s ease;
+}
+
+.depremrss-notification.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.depremrss-notification-success {
+    border-left: 4px solid #28a745;
+}
+
+.depremrss-notification-error {
+    border-left: 4px solid #dc3545;
+}
