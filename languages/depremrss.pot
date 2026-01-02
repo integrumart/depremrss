@@ -1,0 +1,136 @@
+# Copyright (C) 2026 IntegrumArt
+# This file is distributed under the GPL-3.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: Deprem RSS 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/integrumart/depremrss/issues\n"
+"POT-Creation-Date: 2026-01-02 00:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: depremrss.php
+msgid "Deprem RSS"
+msgstr ""
+
+#: includes/admin-page.php
+msgid "Deprem Veri Kaynağı URL"
+msgstr ""
+
+msgid "Deprem verilerinin alınacağı kaynak URL (KOERI varsayılan)"
+msgstr ""
+
+msgid "Önbellek Süresi (saniye)"
+msgstr ""
+
+msgid "Deprem verilerinin önbellekte tutulma süresi (saniye)"
+msgstr ""
+
+msgid "Gösterilecek Deprem Sayısı"
+msgstr ""
+
+msgid "Gösterilecek maksimum deprem sayısı"
+msgstr ""
+
+msgid "Minimum Büyüklük"
+msgstr ""
+
+msgid "Gösterilecek minimum deprem büyüklüğü"
+msgstr ""
+
+msgid "Ayarları Kaydet"
+msgstr ""
+
+msgid "Ayarlar kaydedildi."
+msgstr ""
+
+msgid "Kullanım"
+msgstr ""
+
+msgid "RSS Feed URL"
+msgstr ""
+
+msgid "Kopyala"
+msgstr ""
+
+msgid "Shortcode Kullanımı"
+msgstr ""
+
+msgid "Sayfa veya yazılarınızda deprem listesi göstermek için:"
+msgstr ""
+
+msgid "Parametrelerle kullanım:"
+msgstr ""
+
+msgid "Widget"
+msgstr ""
+
+msgid "Görünüm > Widget'lar menüsünden \"Deprem RSS Widget\" ekleyebilirsiniz."
+msgstr ""
+
+msgid "Son Depremler"
+msgstr ""
+
+msgid "Deprem verisi bulunamadı."
+msgstr ""
+
+msgid "Hakkında"
+msgstr ""
+
+msgid "Deprem RSS eklentisi, Türkiye'deki son depremleri WordPress sitenizde göstermenizi sağlar."
+msgstr ""
+
+msgid "Versiyon:"
+msgstr ""
+
+msgid "Geliştirici:"
+msgstr ""
+
+#: includes/shortcode-template.php
+msgid "Tarih/Saat"
+msgstr ""
+
+msgid "Büyüklük"
+msgstr ""
+
+msgid "Derinlik"
+msgstr ""
+
+msgid "Bölge"
+msgstr ""
+
+msgid "Henüz deprem verisi bulunmuyor."
+msgstr ""
+
+#: includes/class-depremrss-widget.php
+msgid "Deprem RSS Widget"
+msgstr ""
+
+msgid "Son depremleri gösterir"
+msgstr ""
+
+msgid "Başlık:"
+msgstr ""
+
+msgid "Gösterilecek Sayı:"
+msgstr ""
+
+msgid "Minimum Büyüklük:"
+msgstr ""
+
+msgid "Derinlik: %s km"
+msgstr ""
+
+#: depremrss.php (RSS Feed)
+msgid "Son depremler"
+msgstr ""
+
+msgid "Deprem: %.1f Büyüklüğünde - %s"
+msgstr ""
+
+msgid "Büyüklük: %.1f<br>Derinlik: %s km<br>Bölge: %s<br>Tarih: %s<br>Saat: %s"
+msgstr ""

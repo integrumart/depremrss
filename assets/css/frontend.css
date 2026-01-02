@@ -1,0 +1,194 @@
+/* Frontend Styles */
+
+/* Earthquake Table */
+.depremrss-earthquakes {
+    margin: 20px 0;
+    overflow-x: auto;
+}
+
+.depremrss-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.depremrss-table thead {
+    background: #0073aa;
+    color: #fff;
+}
+
+.depremrss-table th {
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.depremrss-table td {
+    padding: 12px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.depremrss-table tbody tr:hover {
+    background: #f9f9f9;
+}
+
+.depremrss-magnitude {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Color code by magnitude */
+.depremrss-magnitude-0 .depremrss-magnitude,
+.depremrss-magnitude-1 .depremrss-magnitude,
+.depremrss-magnitude-2 .depremrss-magnitude {
+    color: #4caf50; /* Green - Minor */
+}
+
+.depremrss-magnitude-3 .depremrss-magnitude {
+    color: #8bc34a; /* Light Green */
+}
+
+.depremrss-magnitude-4 .depremrss-magnitude {
+    color: #ffc107; /* Amber - Moderate */
+}
+
+.depremrss-magnitude-5 .depremrss-magnitude {
+    color: #ff9800; /* Orange - Strong */
+}
+
+.depremrss-magnitude-6 .depremrss-magnitude,
+.depremrss-magnitude-7 .depremrss-magnitude {
+    color: #ff5722; /* Deep Orange - Major */
+}
+
+.depremrss-magnitude-8 .depremrss-magnitude,
+.depremrss-magnitude-9 .depremrss-magnitude {
+    color: #f44336; /* Red - Great */
+}
+
+.depremrss-datetime small {
+    display: block;
+    color: #666;
+    font-size: 0.85em;
+}
+
+.depremrss-no-data {
+    padding: 20px;
+    text-align: center;
+    color: #666;
+    font-style: italic;
+}
+
+/* Widget Styles */
+.depremrss-widget {
+    padding: 10px;
+}
+
+.depremrss-widget-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.depremrss-widget-item {
+    display: flex;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.depremrss-widget-item:last-child {
+    border-bottom: none;
+}
+
+.depremrss-widget-magnitude {
+    background: #d63638;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    min-width: 40px;
+    text-align: center;
+    height: fit-content;
+}
+
+.depremrss-widget-details {
+    flex: 1;
+}
+
+.depremrss-widget-details strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.depremrss-widget-details small {
+    display: block;
+    color: #666;
+    font-size: 0.85em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .depremrss-table {
+        font-size: 14px;
+    }
+    
+    .depremrss-table th,
+    .depremrss-table td {
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .depremrss-table thead {
+        display: none;
+    }
+    
+    .depremrss-table,
+    .depremrss-table tbody,
+    .depremrss-table tr,
+    .depremrss-table td {
+        display: block;
+        width: 100%;
+    }
+    
+    .depremrss-table tr {
+        margin-bottom: 15px;
+        border: 1px solid #e5e5e5;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+    
+    .depremrss-table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    
+    .depremrss-table td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        font-weight: bold;
+        text-align: left;
+    }
+    
+    .depremrss-datetime:before {
+        content: "Tarih/Saat: ";
+    }
+    
+    .depremrss-magnitude:before {
+        content: "Büyüklük: ";
+    }
+    
+    .depremrss-depth:before {
+        content: "Derinlik: ";
+    }
+    
+    .depremrss-location:before {
+        content: "Bölge: ";
+    }
+}
