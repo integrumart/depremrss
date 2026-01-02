@@ -88,7 +88,7 @@ class DepremRSS {
         // Set default options
         if (!get_option('depremrss_options')) {
             $default_options = array(
-                'feed_url' => 'http://www.koeri.boun.edu.tr/scripts/lst0.asp',
+                'feed_url' => 'https://www.koeri.boun.edu.tr/scripts/lst0.asp',
                 'cache_duration' => 300, // 5 minutes
                 'display_limit' => 10,
                 'min_magnitude' => 0.0
@@ -224,8 +224,13 @@ class DepremRSS {
         $options = get_option('depremrss_options');
         $earthquakes = array();
         
-        // Sample earthquake data (in production, this would fetch from KOERI or another source)
-        // For now, we'll return sample data structure
+        // NOTE: This version uses sample data for demonstration purposes.
+        // Real KOERI API integration is planned for version 1.1.0.
+        // The feed_url option is available but not yet implemented in data fetching.
+        // To implement real data fetching, replace the sample_data below with:
+        // $response = wp_remote_get($options['feed_url']);
+        // Then parse the response and extract earthquake data.
+        
         $sample_data = array(
             array(
                 'date' => date('Y.m.d'),
